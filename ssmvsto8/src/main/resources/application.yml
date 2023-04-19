@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  #阿里的druid连接池
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/ssmvsto8?serverTimezone=UTC&characterEnconding=utf-8
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  profiles:
+    active: dev
+#扫描mybatis的***mapper.xml接口映射文件
+mybatis:
+  mapper-locations: classpath:com/dao/*.xml
+server:
+  port: 8080
+  servlet:
+    context-path: /ssmvsto8
+
+#配置枚举 支持通配符 * 或者 ; 分割
+mybatis-plus:
+  type-aliases-package: com..model.*
+  type-enums-package: com.model.enums
+  configuration:
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+
+#返回json的全局时间格式
+
